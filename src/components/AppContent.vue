@@ -15,12 +15,14 @@
 </template>
 
 <style lang="scss">
+    @use '../styles/palette.scss' as *;
+
 
     main{
         padding: 3rem;
         text-align: center;
         color: white;
-        background-color: #1C1C1C;
+        background-color: $tertiary-color;
     }
 
 </style>

@@ -45,11 +45,13 @@
 </template>
 
 <style lang="scss">
+    @use '../styles/palette.scss' as *;
+
     #AppLinks{
         padding: 3rem 0;
 
         color: white;
-        background-color: #0282F9;
+        background-color: $primary-color;
 
         ul{
             list-style: none;
