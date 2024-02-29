@@ -40,6 +40,7 @@
 <style lang="scss">
 
     nav{
+        padding: 20px 0;
         background-color: white;
 
         .container{
