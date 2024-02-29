@@ -18,6 +18,25 @@
                         name: 'sites',
                         links:['DC', 'MAD Magazine', 'DC Kids', 'DC Universe', 'DC Power Visa']
                     },
+                ],
+
+                socials: [
+                    {
+                        name: 'facebook',
+                        icon: '/public/img/footer-facebook.png'
+                    },{
+                        name: 'twitter',
+                        icon: '/public/img/footer-twitter.png'
+                    },{
+                        name: 'youtube',
+                        icon: '/public/img/footer-youtube.png'
+                    },{
+                        name: 'pinterest',
+                        icon: '/public/img/footer-pinterest.png'
+                    },{
+                        name: 'periscope',
+                        icon: '/public/img/footer-periscope.png'
+                    },
                 ]
             }
         }
@@ -43,7 +62,21 @@
 
                 <img src="../../public/img/dc-logo-bg.png" alt="" class="bg-logo">
             </div>
-            
+        </div>
+
+        <div class="ft-bottom">
+            <div class="container">
+                <button>sign-up now!</button>
+                <div class="ft-links">
+                    <h3>follow us</h3>
+                    <ul>
+                        <li v-for="social in socials">
+                            <img :src="social.icon" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </footer>
 </template>
@@ -95,10 +128,61 @@
                 right: 0;
                 top: -50%;
             }
-
         }
 
-        
+        .ft-bottom{
+            background-color: $secondary-color;
+            padding: 2rem;
+
+            .container{
+                display: flex;
+                justify-content: space-between;
+
+                button{
+                    background: transparent;
+                    border: 2px solid $primary-color;
+                    text-transform: uppercase;
+                    
+                    color: white;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    padding: 1rem;
+
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+
+                    &:hover{
+                        background-color: $primary-color;
+                    }
+                }
+
+                .ft-links{
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+
+                    h3{
+                        text-transform: uppercase;
+                        color: $primary-color;
+                    }
+
+                    ul{
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+
+                        li{
+                            widows: 35px;
+                            height: 35px;
+
+                            img{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
 
