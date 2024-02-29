@@ -19,6 +19,12 @@
 
                 activeIndex: 1,
             }
+        },
+
+        methods: {
+            showActive(index){
+                this.activeIndex = index
+            }
         }
     }
 
@@ -32,7 +38,12 @@
             </div>
             <div>
                 <ul>
-                    <li v-for="(link, index) in links" :class="[index == activeIndex ? 'active' : '']">{{link.toUpperCase()}}</li>
+                    <li
+                        v-for="(link, index) in links"
+                        :class="[index == activeIndex ? 'active' : '']"
+                        @click="showActive(index)"
+                        >{{link.toUpperCase()}}
+                    </li>
                 </ul>
             </div>
         </div>
