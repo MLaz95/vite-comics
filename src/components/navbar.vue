@@ -15,7 +15,9 @@
                     'fans',
                     'news',
                     'shop',
-                ]
+                ],
+
+                activeIndex: 1,
             }
         }
     }
@@ -30,7 +32,7 @@
             </div>
             <div>
                 <ul>
-                    <li v-for="link in links">{{link.toUpperCase()}}</li>
+                    <li v-for="(link, index) in links" :class="[index == activeIndex ? 'active' : '']">{{link.toUpperCase()}}</li>
                 </ul>
             </div>
         </div>
@@ -38,9 +40,10 @@
 </template>
 
 <style lang="scss">
+    @use '../styles/palette.scss' as *;
 
     nav{
-        padding: 20px 0;
+        // padding: 20px 0;
         background-color: white;
 
         .container{
@@ -53,7 +56,26 @@
                 display: flex;
 
                 li{
-                    padding: 0 0.8rem;
+                    padding: 50px 0.8rem;
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                    cursor: pointer;
+                    position: relative;
+
+                    &.active::after{
+                        content: '';
+                        width: 70%;
+                        height: 5px;
+                        background-color: $primary-color;
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                    &:hover, &.active{
+                        color: $primary-color;
+                    }
                 }
             }
         }
