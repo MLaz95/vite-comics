@@ -1,8 +1,14 @@
 <script>
+    import AppLinks from './AppLinks.vue';
+
+
     export default{
         name: 'AppFooter',
-
-    data(){
+        components: {
+            AppLinks,
+        },
+        
+        data(){
             return{
                 lists: [
                     {
@@ -23,19 +29,19 @@
                 socials: [
                     {
                         name: 'facebook',
-                        icon: '/public/img/footer-facebook.png'
+                        icon: '/img/footer-facebook.png'
                     },{
                         name: 'twitter',
-                        icon: '/public/img/footer-twitter.png'
+                        icon: '/img/footer-twitter.png'
                     },{
                         name: 'youtube',
-                        icon: '/public/img/footer-youtube.png'
+                        icon: '/img/footer-youtube.png'
                     },{
                         name: 'pinterest',
-                        icon: '/public/img/footer-pinterest.png'
+                        icon: '/img/footer-pinterest.png'
                     },{
                         name: 'periscope',
-                        icon: '/public/img/footer-periscope.png'
+                        icon: '/img/footer-periscope.png'
                     },
                 ]
             }
@@ -47,14 +53,18 @@
 </script>
 
 <template>
+    <AppLinks></AppLinks>
+
     <footer>
         <div class="ft-top">
             <div class="container">
                 
                 <ul class="list-container">
+                    <!-- creates a list item for each element in lists -->
                     <li v-for="list in lists">
                         <h2 class="list-head">{{list.name.toUpperCase()}}</h2>
                         <ul>
+                            <!-- inside each list it creates a nested list taking items from the links array -->
                             <li v-for="link in list.links" class="list-item">
                                 <a href="#!">{{ link }}</a>
                             </li>
@@ -66,6 +76,7 @@
             </div>
         </div>
 
+        <!-- link socials -->
         <div class="ft-bottom">
             <div class="container">
                 <button>sign-up now!</button>
@@ -97,7 +108,7 @@
 
         .ft-top{
             padding: 55px 0 65px;
-            background-image: url(../../public/img/footer-bg.jpg);
+            background-image: url(/img/footer-bg.jpg);
             background-size: cover;
             overflow: hidden;
 

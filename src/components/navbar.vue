@@ -4,6 +4,7 @@
 
         data(){
             return{
+                // array with all the navbar links
                 links: [
                     'characters',
                     'comics',
@@ -17,11 +18,14 @@
                     'shop',
                 ],
 
+                // keeps track of the active navbar link
                 activeIndex: 1,
             }
         },
 
         methods: {
+
+            // updates the active link on click
             showActive(index){
                 this.activeIndex = index
             }
@@ -33,11 +37,13 @@
 <template>
     <nav>
         <div class="container">
+            <!-- logo -->
             <div class="logo-wrapper">
-                <img src="../../public/img/dc-logo.png" alt="">
+                <img src="/img/dc-logo.png" alt="">
             </div>
             <div>
                 <ul>
+                    <!-- creates a link for each element in the array -->
                     <li
                         v-for="(link, index) in links"
                         :class="[index == activeIndex ? 'active' : '']"
@@ -73,6 +79,7 @@
                     cursor: pointer;
                     position: relative;
 
+                    // creates the blue underline underneath each link
                     &.active::after{
                         content: '';
                         width: 70%;
