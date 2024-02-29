@@ -55,7 +55,9 @@
                     <li v-for="list in lists">
                         <h2 class="list-head">{{list.name.toUpperCase()}}</h2>
                         <ul>
-                            <li v-for="link in list.links" class="list-item">{{ link }}</li>
+                            <li v-for="link in list.links" class="list-item">
+                                <a href="#!">{{ link }}</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -67,7 +69,7 @@
         <div class="ft-bottom">
             <div class="container">
                 <button>sign-up now!</button>
-                <div class="ft-links">
+                <div class="ft-socials">
                     <h3>follow us</h3>
                     <ul>
                         <li v-for="social in socials">
@@ -117,6 +119,14 @@
             .list-item{
                 font-size: 0.8rem;
                 color: gray;
+
+                a{
+                    color: gray;
+                    text-decoration: none;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
             }
 
             .container{
@@ -156,7 +166,7 @@
                     }
                 }
 
-                .ft-links{
+                .ft-socials{
                     display: flex;
                     align-items: center;
                     gap: 1rem;
@@ -174,6 +184,8 @@
                         li{
                             widows: 35px;
                             height: 35px;
+
+                            cursor: pointer;
 
                             img{
                                 width: 100%;
