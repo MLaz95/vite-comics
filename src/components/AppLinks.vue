@@ -62,6 +62,7 @@
             gap: 2rem;
             
             li{
+                cursor: pointer;
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;

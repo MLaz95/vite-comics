@@ -101,6 +101,7 @@
                 v-for="item in products"
                 :productImage="item.thumb"
                 :productTitle="item.series"
+                :productPrice="item.price"
             ></ProductItem>
             <button>load more</button>
         </div>
