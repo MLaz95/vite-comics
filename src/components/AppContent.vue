@@ -94,17 +94,17 @@
 <template>
     <main>
         <div id="jumbotron"></div>
-        <div id="product-bg">
-            <div class="container product-case">
-                
-                <ProductItem
-                    v-for="item in products"
-                    :productImage="item.thumb"
-                    :productTitle="item.series"
-                ></ProductItem>
-                
-            </div>
+        
+        <div class="container product-case">
+            <div class="case-tag">current series</div>
+            <ProductItem
+                v-for="item in products"
+                :productImage="item.thumb"
+                :productTitle="item.series"
+            ></ProductItem>
+            <button>load more</button>
         </div>
+        
             
     </main>
 </template>
@@ -117,16 +117,38 @@
         background-image: url(/img/jumbotron.jpg);
     }
 
-    #product-bg{
-        background-color: $tertiary-color;
+    .product-case{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 0.5rem;
 
-        .product-case{
-            display: flex;
-            flex-wrap: wrap;
-            row-gap: 0.5rem;
+        padding: 35px 16px;
+        color: white;
 
+        position: relative;
+
+        .case-tag{
+            position: absolute;
+            top: -26px;
+            left: 0px;
+
+            padding: 0.5rem 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: $primary-color;
+        }
+
+        button{
+            cursor: pointer;
+            padding: 15px 60px;
+            font-weight: bold;
+            text-transform: uppercase;
             color: white;
+            background-color: $primary-color;
+
         }
     }
-
+   
 </style>
