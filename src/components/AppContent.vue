@@ -1,6 +1,12 @@
 <script>
+    import ProductItem from './ProductItem.vue';
+
     export default {
         name: 'AppContent',
+
+        components:{
+            ProductItem,
+        },
 
         data(){
             return{
@@ -88,9 +94,15 @@
 <template>
     <main>
         <div id="jumbotron"></div>
-        <div id="product-case">
-            <div class="container">
-                <div v-for="item in products">{{item.series}}</div>
+        <div id="product-bg">
+            <div class="container product-case">
+                
+                <ProductItem
+                    v-for="item in products"
+                    :productImage="item.thumb"
+                    :productTitle="item.series"
+                ></ProductItem>
+                
             </div>
         </div>
             
@@ -105,12 +117,15 @@
         background-image: url(/img/jumbotron.jpg);
     }
 
-    #product-case{
-        color: white;
+    #product-bg{
         background-color: $tertiary-color;
 
-        .container{
+        .product-case{
             display: flex;
+            flex-wrap: wrap;
+            row-gap: 0.5rem;
+
+            color: white;
         }
     }
 
